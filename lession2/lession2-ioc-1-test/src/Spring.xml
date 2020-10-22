@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置 student 对象 -->
+    <bean id="stu" class="com.jetlion.entity.Student">
+        <property name="id" value="1"></property>
+        <property name="name" value="张三"></property>
+        <property name="age" value="23"></property>
+    </bean>
+
+    <!-- 配置 student 对象 -->
+    <bean id="stu2" class="com.jetlion.entity.Student">
+        <property name="id" value="1"></property>
+        <property name="name">
+            <value><![CDATA[<张三>]]></value>
+        </property>
+        <property name="age" value="23"></property>
+    </bean>
+
+    <!-- 通过有参构造函数创建对象 -->
+    <bean id="stu3" class="com.jetlion.entity.Student">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="name" value="小明"></constructor-arg>
+        <constructor-arg name="age" value="22"></constructor-arg>
+    </bean>
+
+
+    <!-- 创建 classes 对象 -->
+    <bean id="classes" class="com.jetlion.entity.Classes">
+        <property name="id" value="1"></property>
+        <property name="name" value="Java班"></property>
+    </bean>
+    <!-- 创建 stu 对象 -->
+    <bean id="stu4" class="com.jetlion.entity.Student">
+        <property name="id" value="1"></property>
+        <property name="name">
+            <value><![CDATA[<张三>]]></value>
+        </property>
+        <property name="age" value="23"></property>
+        <!-- 将 classes 对象赋给 stu 对象 -->
+        <property name="classes" ref="classes"></property>
+    </bean>
+
+
+    <!-- 配置 classes 对象 -->
+    <bean id="classes2" class="com.jetlion.entity.Classes">
+        <property name="id" value="1"></property>
+        <property name="name" value="Java班"></property>
+        <property name="students">
+            <!-- 注入 student 对象 -->
+            <list>
+                <ref bean="stu5"/>
+                <ref bean="stu6"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="stu5" class="com.jetlion.entity.Student">
+        <property name="id" value="1"></property>
+        <property name="name">
+            <value><![CDATA[<张三>]]></value>
+        </property>
+        <property name="age" value="23"></property>
+    </bean>
+    <bean id="stu6" class="com.jetlion.entity.Student">
+        <property name="id" value="2"></property>
+        <property name="name" value="李四"></property>
+        <property name="age" value="23"></property>
+    </bean>
+
+
+
+</beans>
