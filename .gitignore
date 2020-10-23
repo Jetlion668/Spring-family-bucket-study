@@ -34,3 +34,6 @@ build/
 ### VS Code ###
 .vscode/
 /lession3/lession3-ioc-2-test/out
+/lession6/lession6-ico-test/out
+/lession5/lession5-annotation-based-development-test/out
+/lession4/lession-ioc-3-test/out
