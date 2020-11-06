@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="dateConverterTest" method="post">
+<form action="/dateConverterTest" method="post">
     请输入日期：<input type="text" name="date"/><font style="font-size:13px">(yyyy-MM-dd)</font><br/>
     <input type="submit" value="提交"/>
 </form>

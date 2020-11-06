@@ -1,8 +1,7 @@
-package com.jetlion.utils;
-
-import org.springframework.core.convert.converter.Converter;
+package com.jetlion.utils.converter;
 
 import com.jetlion.entity.Student;
+import org.springframework.core.convert.converter.Converter;
 
 public class StudentConverter implements Converter<String,Student>{
 
