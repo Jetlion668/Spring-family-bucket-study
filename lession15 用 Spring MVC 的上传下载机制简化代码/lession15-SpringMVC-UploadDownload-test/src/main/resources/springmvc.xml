@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 配置自动扫描 -->
+    <context:component-scan base-package="com.jetlion"></context:component-scan>
+
+	<!-- 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 -->
+        <property name="prefix" value="/"></property>
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    
+    <!-- 配置CommonsMultipartResolver bean，id必须是multipartResolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 处理文件名中文乱码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 设置多文件上传，总大小上限，不设置默认没有限制，单位为字节，1M=1*1024*1024 -->
+        <property name="maxUploadSize" value="1048576"/>
+        <!-- 设置每个上传文件的大小上限 -->
+        <property name="maxUploadSizePerFile" value="1048576"/>
+    </bean>
+
+    <!-- 设置异常解析器 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="/error.jsp"/>
+    </bean>
+
+</beans>
